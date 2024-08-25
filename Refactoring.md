@@ -1,23 +1,39 @@
-# Refactoring
+Esse é o primeiro artigo de uma série. Estou escrevendo essa série com o intuíto de me ajudar a absorver melhor o conteúdo do livro [Refactoring - 1ª](https://www.amazon.com.br/Refactoring-Improving-Design-Existing-Code/dp/0134757599).Entendo que ao tentar comunicar o meu entendimento para outras pessoas, sou capaz de refletir de maneira mais rica o conteúdo do livro e meu entendimento dele. Dito isso, será um prazer imenso ler comentários e sugestões de quem ler esse artigo. 
 
-18/08 
+
+**Considerações importantes**
+
+Eu sou adepto do SOLID, por isso você vai ver eu argumentando que respeitar seus princípios é sempre benefico. Isso não quer dizer que acho que devemos seguir esses princípios de forma automática, sem a devida reflexão dos seus beneficios e maleficios (geralmente aumentar o número de abstrações,aumentando a complexidade do código).
+
+Os exemplos são feitos para ajudar a entender melhor o conceito. Por isso devem ser simples. Isso pode fazer com que pareça desnecessário algumas refatorações, como se elas apenas aumentassem a complexidade do código. Mas imagine que estamos em um contexto de um sistema que está em constante evolução, como  novas funcionalidades e regras de negócio. 
+
+Outra coisa importante notar é que algumas técnicas de refatoração parecem não levar em consideração a performance, especialmente se o código for chamado muitas vezes em um loop.E de certa forma é isso mesmo. Mas isso não é desconsiderar a perfomance, é apenas entender que são momentos diferentes do estágio de mantutenção do código.
+
+Um código bem estruturado vai ser sempre mais fácil de tornar performatico do que um codigo altamente acoplado (faz com que mudanças em uma funcionalidade acabem afetando outras), dificil de entender (aumentando a chance de adição de código adicionar bugs). Além disso, tem a questão que nosso instito sobre a performance de uma aplicação pode estar completamente errado, apesar de fazer sentido lógico. 
+
+Por isso é sempre preciso MEDIR a performance para saber o que de fato é um gargalo ou não. Então, durante a refatoração, não vamos nos preocupar com a performance e tudo bem. Quando formos trabalhar a performance, ai sim podemos abrir mão de um alto nível legibilidade e maior segração de interfaces.
+
+**Todas essas considerações são feitas pelo Martin no livro. (menos a parte do SOLID)**
 
 # Chapter 1. Rafactoring, a First Example
 
-É preciso ter testes unitários para poder realizar o refactor com segurançã
+O Martin tem uma maneira de escrever seus livros, começando sempre por um exemplo prático. Nesse exemplo ele já mobiliza os diversos conceitos que ele vai posteriormente detalhar.
+
+Antes de começar, ele estressa bastante o ponto de que é preciso ter testes unitários para poder realizar o refactor com segurança
 	- primeiro testes
-	- depois refactor
+	- depois /refactor
 
-É preciso executar o refactor em pequenos passos, tornando mais facil corrigir se algo der errado. 
+Outro ponto importante é: executar o refactor em pequenos passos, tornando mais fácil corrigir se algo der errado. 
 
-> "Any fool can write code that a computer can understand. Good rogrammers write code that humans can understand."
+> "Any fool can write code that a computer can understand. Good programmers write code that humans can understand."
 
-> Refatorar é mudar o código em pequnos passos, tornando mais facil corrigir se algo der errado.
+Abaixo listo as técnicas comentadas nesse capitulo, com exemplos diferentes, que fiz para poder absorver melhor o conteúdo. Para criar a implementação em Python dos novos exemplos, usei a ajuda do Gepeto (me tornei um programador muito preguiçoso, quero só pensar, deixo a escrita pra LLM 😂). Tirando isso, o restante foi escrito por mim. 
 
 ## Extract Method
 
 A técnica de refatoração Extract Method é usada quando você tem um trecho de código que pode ser extraído para um novo método, dando-lhe um nome descritivo e reduzindo a complexidade do método original. Isso melhora a legibilidade e facilita a manutenção do código.
 
+### Exemplo
 ```py
 class Order:
     def __init__(self, items):
@@ -34,9 +50,10 @@ class Order:
 
 ```
 
+### Problema
 Neste exemplo, o método print_order faz várias coisas: imprime os detalhes de cada item e calcula o preço total.
 
-### Refatorado
+### Aplicando o Move Method
 
 ```py
 class Order:
@@ -61,10 +78,14 @@ class Order:
 
 ```
 
-**Obs:**
+*Agora, o método print_order é mais simples e legível. Ele delega as responsabilidades de calcular o preço total e imprimir os itens para métodos específicos (_calculate_total_price e _print_items). Isso segue o princípio de responsabilidade única, facilitando a manutenção e possíveis futuras alterações.*
 
-Agora, o método print_order é mais simples e legível. Ele delega as responsabilidades de calcular o preço total e imprimir os itens para métodos específicos (_calculate_total_price e _print_items). Isso segue o princípio de responsabilidade única, facilitando a manutenção e possíveis futuras alterações.
+### Benefícios da Refatoração
 
+- A legibilida melhorada: Cada parte do cálculo agora tem um nome descritivo, tornando o código mais fácil de entender.
+- Reusabilidade: Se precisarmos do preço base ou do desconto em outro lugar, podemos simplesmente chamar o método correspondente.
+- Facilidade de Manutenção: Se a lógica de cálculo mudar (por exemplo, a regra de desconto), só precisamos modificar o método específico.
+- Testabilidade: Cada método pode ser testado independentemente, facilitando a criação de testes unitários.
 
 ## Move Method
 A técnica de refatoração Move Method é usada quando você percebe que um método em uma classe está mais relacionado ou tem maior dependência de outra classe. A ideia é mover o método para a classe onde ele faz mais sentido, melhorando o encapsulamento e a coesão.
@@ -99,8 +120,8 @@ class Transaction:
         self.amount = amount
 
 ```
-**Obs:** 
-Repare como no método que calcula o total de taxas. Ele basicamente usa informações que não pertecem a classe BankAccount.Isso é um forte sinal de que o método deveria estar na classe Transaction.
+
+*Repare como no método que calcula o total de taxas. Ele basicamente usa informações que não pertencem a classe BankAccount.Isso é um forte sinal de que o método deveria estar na classe Transaction.*
 
 #### Problema
 
@@ -140,11 +161,11 @@ class Transaction:
         return 0
 ```
 
-**Obs:**
-Repare que o método que calcula as taxas nao recebe nenhum parametro. Isso é um sinal de que ele não precisa estar na classe BankAccount, e sim na classe Transaction. Não que isso seja uma regra, nao tem parametros, move a classe, mas é um bom indicativo. Em orientação a objetos, um dos objetivos é que a lógica de um método dependa de dados que são da sua classe. Por isso a importancia do conceito de encapsulamento.
+*Repare que o método que calcula as taxas não recebe nenhum parâmetro. Isso é um sinal de que ele não precisa estar na classe BankAccount, e sim na classe Transaction. Não que isso seja uma regra, não tem para metros, move a classe, mas é um bom indicativo. Em orientação a objetos, um dos objetivos é que a lógica de um método dependa de dados que são da sua classe. Por isso a importância do conceito de encapsulamento.*
 
 ### Benefícios da Refatoração
 
+- Legibilidade melhorada: a melhor segmentação do código torna a carga cognitiva mais leve, tornando o código mais fácil de entender.
 - Encapsulamento Melhorado: A lógica específica de cada transação está agora encapsulada dentro da classe Transaction, que é **responsável pelos detalhes** das transações.
 - Maior Coesão: A classe BankAccount é agora mais coesa, focando em gerenciar a conta e delegando a lógica de cada transação para a classe apropriada.
 - Facilidade de Manutenção: Se as regras de cálculo de taxas mudarem, isso pode ser tratado diretamente na classe Transaction, sem afetar a lógica geral da classe BankAccount.
@@ -152,7 +173,7 @@ Repare que o método que calcula as taxas nao recebe nenhum parametro. Isso é u
 
 ## Replace Type Code with State/Strategy
 
-Essa técnica é usada quando você tem um código que utiliza tipos ou valores específicos para determinar o comportamento (como os tipos de transação no exemplo) e deseja substituir isso por uma estrutura mais orientada a objetos, utilizando padrões como State ou Strategy.
+Essa técnica é usada quando você tem um código que utiliza tipos ou valores específicos para determinar o comportamento (como os tipos de transação no exemplo) e deseja substituir isso por uma estrutura mais orientada a objetos, utilizando padrões como [State](https://refactoring.guru/design-patterns/state) ou [Strategy](https://refactoring.guru/design-patterns/strategy).
 
 ### Exemplo
 
@@ -173,8 +194,7 @@ class Transaction:
 
 ```
 
-**Obs:**
-Repare como a forma de calcular muda a depender do tipo da transação. Isso é um sinal de que podemos aplicar o padrão Srategy, que vai tornar o código mais orientado a objetos e extensivel, respeitando o príncipio de Open/Closed, uma vez que adicionar mais formas de calcular taxas não afetará o código de Transaction.
+*Repare como a forma de calcular muda a depender do tipo da transação. Isso é um sinal de que podemos aplicar o padrão [Strategy](https://refactoring.guru/design-patterns/strategy), que vai tornar o código mais orientado a objetos e extensível, respeitando o príncipio de Open/Closed, uma vez que adicionar mais formas de calcular taxas não afetará o código de Transaction.*
 
 ### Problema
 
@@ -328,4 +348,41 @@ Repare que agora não temos mais variáveis temporárias. Cada cálculo intermed
 Ao aplicar "Replace Temp With Query", você está essencialmente transformando dados (variáveis) em comportamento (métodos), o que geralmente leva a um design mais orientado a objetos e mais flexível.
 
 # Chapter 2. Principles in Refactoring
+
+> Refatorar é mudar a estrutura interna de um programa, mas não mudar seu comportamento. (Substantivo)
+
+> Alterar um software aplicando uma série de refatorações sem alterar o seu comportamento observavel.
+
+> O objetivo da refatoração é tornar o código mais legível, mais fácil de manter e mais flexível. É bastante diferente de otimizar o software, pois nesse caso o desempenho é mais importante que a legibilidade e facilidade de manutenção.
+
+## Os dois chapéis
+Ken Beck, um dos maiores desenvolvedores de software da história, fala sobre a ideia de dois chapéis. Tem o chapéu de adição de funcionalidade e o chapéu de refatoração. Quando você está adicionando funcionalidade, seu objetivo é adicionar um novo comportamente ao sistema. Quando você está refatorando, seu objetivo é tornar o código mais legível, mais fácil de manter e mais flexível, sem adicionar novos comportamentos.
+
+## Por que refatorar?
+
+> Sem refatoração, o design do sistema vai degradar ao longo do tempo, tornando-o mais difícil de manter e menos flexível. A atuação de diferentes pessoas e equipes também pode fazer o sistema perder sua arquitetura. Isso vai tornar entender o design do sistema mais dificil. 
+
+> Quanto mais dificil de pereber um design, mais difícil é manter e refatorar.
+
+> Isso faz com que para mudar um pedaço de código acabe sendo necessário escrever mais linhas. O que em si contribui para piorar o problema.
+
+> Uma das causas de se tornar mais díficil é por que um sistema mal estruturado tende a ter muita repetição de código. Entao, para mudar o código é necessário verificar se existe alguma repetição, e vc acaba tendo que fazer a mesma alteração em vários lugares.
+
+> Quanto mais código, mais difícil é modificar corretamente. Ou seja, sem a introdução de bugs.
+
+> A remoção de duplicação vc garante que o código diga tudo que tem que dizer e apenas uma vez, o que é a essencia de um bom design.
+
+## Refatoração torna o código mais fácil de entender
+
+Para sermos capazes de trabalhar de forma efetiva em um sistema, é necessário entender seu código e design. A refatoração, ao garantir a preservação da estrutura do código e sua legibilidade, a refatoração garante que a proxima pessoa a trabalhar no seu código, tenha a possibilidade de entender rapidamente e ser capaz de alterar com maior segurança, visto que um dos resultaedos da refatoração é deixar o código aberto para extensao e fechado para modificação.
+
+Refatorar também é um alinhado ao processo de entendimento de um sistema. Isso pq ao modificar o codigo, sem modificar seu comportamento, vc acaba expressando o mesmo comportamento mas agora dentro de um arcabouço de ideias que vc esta propondo ao refatorar, te tornando mais dono do código e entendedor da sua motivação e forma correta de funcionamento.
+
+## Refatorar te ajuda a achar bugs
+
+Ao facilitar o entendimento de um sistema, refatorar também ajuda a achar bugs. Quando vc refatora, vc acaba entendendo o código e sua estrutura, e ao encontrar um bug, vc acaba entendendo o que está errado e como corrigir. 
+
+## Refatorar ajuda a programar mais rápido
+
+Uma boa estrutura de código torna ele mais facil de extender, isso pq a extensibilidade  é uma das caracterísitcas que a refatoração vai trazer. Como a uplicação é minima, siguinifica que vai ter que alterar em menos lugares, diminuindo o espaço para erros. Também torna testar mais fácil, uma vez que outra consequencia da refatoração é a melhor seguimentação do código, melhor organização das abstrações do negócio, e isso tora o teste unitario mais rapido de fazer. 
 
