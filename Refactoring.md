@@ -253,10 +253,29 @@ Agora, ao invés de verificar o tipo de transação usando strings, Transaction 
 ## Replace Conditional with Polymorphism
 Replace Conditional with Polymorphism é uma técnica de refatoração que substitui condicionais complexas (como if-else ou switch-case) por polimorfismo. Isso é feito criando uma hierarquia de classes onde cada classe concreta implementa um comportamento específico. Essa abordagem melhora a legibilidade, facilita a manutenção e reduz a complexidade do código.
 
+Podemos usar o exemplo anterior para analisar essa técnica.
+
 Como estamos fazendo baseado em uma estrutura de classes, podemos usar o conceito de polimorfismo, que é uma técnica de refatoração que substitui condicionais complexas (como if-else ou switch-case) por polimorfismo. 
 
 Isso é possível pois a classe que chama o método depende apenas da classe abstrata TransactionType, e não da sua implementação concreta. 
 
+```py
+class Transaction:
+    def __init__(self, transaction_type, amount):
+        self.transaction_type = transaction_type 
+        self.amount = amount
+
+    def calculate_fee(self):
+        return self.transaction_type.calculate_fee(self.amount) # Ao invés de condicionais, Transaction delega o cálculo da taxa à instância da estratégia apropriada.
+```
+
+```py
+def calculate_fees(self):
+        total_fees = 0
+        for transaction in self.transactions:
+            total_fees += transaction.calculate_fee() # Não sabe qual o tipo de transação, só sabe que a transação tem um método calculate_fee.
+        return total_fees
+```
 Isso faz com que não seja necessario condicionais, uma vez que ao receber um objeto TransactionType, o método calculate_fee pode ser chamado de forma independente da classe concreta que implementa o método. 
 
 Ao instanciar uma Transcation, informamos qual a classe TransactionType que vai ser usada para calcular a taxa, e o método Transaction chama o método calculate_fee da instância da classe TransactionType.
@@ -275,7 +294,6 @@ No exemplo anterior, tinhamos:
 
 - Respeita o princípio de Open/Closed:
     Adicionar novos comportamentos é uma questao de implmentar novas subclasses de TransactionType, e não de modificar a classe Transaction. Isso é um sinal de que o código deve ser aberto para extensão, mas fechado para modificação.
-Entendi. Vou criar um exemplo semelhante para a técnica "Replace Temp With Query" que acabamos de discutir. Aqui está:
 
 ## Replace Temp With Query
 
