@@ -6,14 +6,16 @@
 **Tipo:** Artigo Científico
 
 **Resumo:**  
-Este artigo seminal de Winston W. Royce é frequentemente creditado como a introdução do modelo em cascata (Waterfall Model) no desenvolvimento de software. Royce descreve um processo sequencial de desenvolvimento dividido em fases distintas: requisitos, design, implementação, verificação e manutenção. Embora muitas vezes interpretado como um modelo rígido, Royce originalmente propôs iterações e feedback entre as fases para abordar os riscos, destacando a importância de revisões e validações contínuas durante o processo de desenvolvimento.
+Royce introduz o modelo cascata (Waterfall) como um processo sequencial de desenvolvimento com fases de requisitos, design, implementação, verificação e manutenção. Ele sugere iterações entre as fases para reduzir riscos.
 
-### **Críticas:**
+### **Comentários e Críticas**
 
 #### **"Spiral Model of Software Development and Enhancement"**  
 **Autor:** Barry W. Boehm  
 **Ano:** 1988  
-**Tipo:** Artigo Científico
+**Tipo:** Artigo Científico  
+**Resumo:**  
+Boehm apresenta o Modelo Espiral como uma resposta ao Waterfall, trazendo flexibilidade e ênfase na gestão de riscos com ciclos iterativos.
 
 ---
 
@@ -23,19 +25,23 @@ Este artigo seminal de Winston W. Royce é frequentemente creditado como a intro
 **Tipo:** Artigo Científico
 
 **Resumo:**  
-Este artigo seminal de Edsger W. Dijkstra promove a prática de programação estruturada e argumenta contra o uso do comando GOTO, defendendo que a programação deve ser estruturada em blocos bem definidos e organizados hierarquicamente, melhorando a legibilidade e a manutenção do código.
+Dijkstra defende a programação estruturada, rejeitando o uso de GOTO e promovendo blocos organizados hierarquicamente para melhorar a legibilidade e manutenção do código.
 
-### **Críticas:**
+### **Comentários e Críticas:**
 
 #### **"Structured Programming with go to Statements"**  
 **Autor:** Donald Knuth  
 **Ano:** 1974  
-**Tipo:** Artigo Científico
+**Tipo:** Artigo Científico  
+**Resumo:**  
+Knuth explora os benefícios e limitações do comando GOTO em contextos específicos, argumentando que ele pode ser útil quando usado corretamente.
 
 #### **"Research on Structured Programming: An Empiricist’s Evaluation"**  
 **Autores:** Vessey, I., & Weber, R.  
 **Ano:** 1984  
-**Tipo:** Artigo Científico
+**Tipo:** Artigo Científico  
+**Resumo:**  
+O estudo de Vessey e Weber avalia a eficácia da programação estruturada, apontando que sua aplicabilidade depende do contexto e do tipo de problema abordado.
 
 ---
 
@@ -45,14 +51,16 @@ Este artigo seminal de Edsger W. Dijkstra promove a prática de programação es
 **Tipo:** Artigo Científico
 
 **Resumo:**  
-Ken Thompson discute a confiança em compiladores e no software em geral, apresentando um ataque de backdoor no compilador que é invisível ao código-fonte, demonstrando como é possível comprometer a segurança do software de maneira sutil e persistente.
+Thompson expõe a vulnerabilidade dos compiladores, demonstrando como um backdoor pode ser introduzido no compilador sem ser visível no código-fonte.
 
-### **Críticas:**
+### **Comentários e Críticas:**
 
 #### **"Reflections on the Trusting Trust Attack"**  
 **Autor:** Bruce Schneier  
 **Ano:** 2000  
-**Tipo:** Blog Post
+**Tipo:** Blog Post  
+**Resumo:**  
+Schneier revisita o ataque descrito por Thompson, explorando a importância da confiança em ferramentas de desenvolvimento e sugerindo soluções como assinaturas digitais.
 
 ---
 
@@ -62,19 +70,23 @@ Ken Thompson discute a confiança em compiladores e no software em geral, aprese
 **Tipo:** Artigo Científico
 
 **Resumo:**  
-Neste artigo, Basili e Rombach introduzem o conceito de "software engineering process models" e discutem a importância da avaliação contínua dos processos de software para garantir a qualidade e a produtividade. Eles apresentam uma abordagem iterativa de desenvolvimento de software e destacam a necessidade de adaptação e avaliação constante dos processos para melhorar a eficiência.
+Basili e Rombach introduzem a avaliação contínua de processos de engenharia de software, propondo melhorias iterativas para aumentar a qualidade e produtividade do desenvolvimento.
 
-### **Críticas:**
+### **Comentários e Críticas:**
 
 #### **"Evaluating the Effectiveness of Software Engineering Process Models"**  
 **Autor:** Carlo Ghezzi  
 **Ano:** 1989  
-**Tipo:** Artigo Científico
+**Tipo:** Artigo Científico  
+**Resumo:**  
+Ghezzi analisa a eficácia dos modelos de processo, apontando suas limitações e a necessidade de adaptações para diferentes tipos de projetos.
 
 #### **"Management Challenges to Implementing Agile Processes in Traditional Development Organizations"**  
 **Autores:** Boehm, B., & Turner, R.  
 **Ano:** 2005  
-**Tipo:** Artigo Científico
+**Tipo:** Artigo Científico  
+**Resumo:**  
+Boehm e Turner discutem os desafios na adoção de métodos ágeis em organizações tradicionais, sugerindo estratégias para superar barreiras culturais e processuais.
 
 ---
 
@@ -84,16 +96,39 @@ Neste artigo, Basili e Rombach introduzem o conceito de "software engineering pr
 **Tipo:** Artigo Científico
 
 **Resumo:**  
-Este artigo introduz um conjunto de métricas para avaliar a qualidade de projetos orientados a objetos. Chidamber e Kemerer propõem seis métricas que se tornaram amplamente utilizadas na avaliação de complexidade e qualidade de design, incluindo "Weighted Methods per Class" (WMC) e "Coupling between Object Classes" (CBO). Essas métricas influenciaram diretamente a maneira como os desenvolvedores e engenheiros de software avaliam o impacto de suas decisões de design sobre a manutenção e extensibilidade do software.
+Chidamber e Kemerer propõem métricas objetivas para avaliar projetos orientados a objetos, como WMC e CBO, amplamente utilizadas para medir a complexidade e qualidade do design.
 
-### **Críticas:**
+### **Comentários e Críticas:**
 
 #### **"Exploring the relationships between design measures and software quality in object-oriented systems"**  
 **Autor:** Briand, L. C., Wüst, J., Daly, J. W., & Victor Porter, D.  
 **Ano:** 2000  
-**Tipo:** Artigo Científico
+**Tipo:** Artigo Científico  
+**Resumo:**  
+Este estudo examina a relação entre as métricas de design orientado a objetos e a qualidade do software, destacando a importância de boas práticas de design para manutenção.
 
 #### **"A validation of object-oriented design metrics as quality indicators"**  
 **Autores:** Victor Basili, Lionel Briand, Walcélio Melo  
 **Ano:** 1996  
+**Tipo:** Artigo Científico  
+**Resumo:**  
+Basili e seus coautores avaliam empiricamente a aplicabilidade das métricas de design orientado a objetos, sugerindo que são úteis para identificar áreas de baixa qualidade no código.
+
+---
+
+## **6. "Object-Oriented Analysis and Design"**  
+**Autor:** Constance A. Knapp  
+**Ano:** 1995  
 **Tipo:** Artigo Científico
+
+**Resumo:**  
+Knapp introduz técnicas de análise e design orientadas a objetos, focando na identificação de objetos e suas interações, além da modularidade e reutilização de código para simplificar sistemas complexos.
+
+### **Comentários e Críticas:**
+
+#### **"Is There Such a Thing as Object-Oriented Analysis?"**  
+**Autor:** Martin Fowler  
+**Ano:** 1999  
+**Tipo:** Artigo de Opinião  
+**Resumo:**  
+Fowler questiona a existência de uma verdadeira análise orientada a objetos, sugerindo que o foco excessivo nessa abordagem pode obscurecer o entendimento dos requisitos funcionais.
