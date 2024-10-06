@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Nome: ensure_name.sh
-# Descrição: Renomeia arquivos nas pastas "Artigos" e "Livros" para seguir o padrão [nome_arquivo].[Tipo(Livro|Artigo)].[Ano].pdf
+# Descrição: Renomeia arquivos nas pastas "Artigos" e "Livros" para seguir o padrão [nome_do_livro].[Tipo(Livro|Artigo)].[Ano].[Autores].pdf
 # Autor: [Seu Nome]
 # Data: [Data Atual]
 
@@ -30,16 +30,16 @@ check_dependencies() {
     fi
 }
 
-# Função para sanitizar o nome do arquivo
-sanitize_name() {
-    local name="$1"
-    # Remove caracteres especiais e substitui espaços por underscores
-    name=$(echo "$name" | sed 's/[\/:*?"<>|]/_/g' | tr ' ' '_')
+# Função para sanitizar o nome do arquivo (título ou autores)
+sanitize_text() {
+    local text="$1"
+    # Remove caracteres especiais e substitui espaços e vírgulas por underscores
+    text=$(echo "$text" | sed 's/[\/:*?"<>|]/_/g' | tr ' ,-' '_')
     # Remove múltiplos underscores
-    name=$(echo "$name" | sed 's/__*/_/g')
+    text=$(echo "$text" | sed 's/__*/_/g')
     # Remove leading e trailing underscores
-    name=$(echo "$name" | sed 's/^_//' | sed 's/_$//')
-    echo "$name"
+    text=$(echo "$text" | sed 's/^_//' | sed 's/_$//')
+    echo "$text"
 }
 
 # Função para converter diretório plural para singular
@@ -57,11 +57,12 @@ get_type_singular() {
 # Função para analisar e extrair informações do nome do arquivo
 parse_filename() {
     local filename="$1"
-    # Expressão regular para extrair o título e o ano do nome atual do arquivo
-    # Padrão atual esperado: [Título] - [Autor] (Ano).pdf ou [Título] _ [Autor] (Ano).pdf
-    if [[ "$filename" =~ ^(.+?)[-_][[:space:]]*.+\(([0-9]{4})\)\.pdf$ ]]; then
+    # Expressão regular para extrair o título, autores e ano do nome atual do arquivo
+    # Padrão esperado: [Título] - [Autor1, Autor2, ...] ([Ano]).pdf
+    if [[ "$filename" =~ ^(.+?)[-_][[:space:]]*([^()]+)[[:space:]]*\(([0-9]{4})\)\.pdf$ ]]; then
         TITLE="${BASH_REMATCH[1]}"
-        FILE_YEAR="${BASH_REMATCH[2]}"
+        AUTHORS="${BASH_REMATCH[2]}"
+        FILE_YEAR="${BASH_REMATCH[3]}"
         return 0
     else
         return 1
@@ -73,13 +74,16 @@ construct_new_filename() {
     local title="$1"
     local type="$2"
     local year="$3"
+    local authors="$4"
 
-    # Sanitiza o título para criar [nome_arquivo]
+    # Sanitiza o título e os autores
     local sanitized_title
-    sanitized_title=$(sanitize_name "$title")
+    sanitized_title=$(sanitize_text "$title")
+    local sanitized_authors
+    sanitized_authors=$(sanitize_text "$authors")
 
     # Define o novo nome do arquivo
-    local new_filename="${sanitized_title}.${type}.${year}.pdf"
+    local new_filename="${sanitized_title}.${type}.${year}.${sanitized_authors}.pdf"
     echo "$new_filename"
 }
 
@@ -139,7 +143,7 @@ process_file() {
 
         # Constrói o novo nome do arquivo usando o ano do arquivo, não do diretório
         local new_filename
-        new_filename=$(construct_new_filename "$TITLE" "$type" "$FILE_YEAR")
+        new_filename=$(construct_new_filename "$TITLE" "$TYPE_SINGULAR" "$FILE_YEAR" "$AUTHORS")
 
         # Define o novo caminho completo do arquivo
         local new_filepath="${file%/*}/$new_filename"
