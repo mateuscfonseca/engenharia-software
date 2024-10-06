@@ -30,11 +30,14 @@ check_dependencies() {
     fi
 }
 
-# Função para sanitizar o nome do arquivo (título e autores)
+# Função para sanitizar o nome do arquivo (título ou autores)
 sanitize_text() {
     local text="$1"
-    # Remove caracteres especiais e substitui espaços e vírgulas por underscores
-    text=$(echo "$text" | sed 's/[\/:*?"<>|]/_/g' | tr ' ,-' '_')
+    # Remove caracteres especiais, exceto hífens e vírgulas
+    text=$(echo "$text" | sed 's/[\/:*?"<>|]/_/g')
+    # Substitui vírgulas por vírgulas (mantém)
+    # Substitui espaços por underscores
+    text=$(echo "$text" | tr ' ' '_')
     # Remove múltiplos underscores
     text=$(echo "$text" | sed 's/__*/_/g')
     # Remove leading e trailing underscores
@@ -76,15 +79,17 @@ construct_new_filename() {
     local year="$3"
     local authors="$4"
 
-    # Combina título e autores
-    local name_with_authors="${title} - ${authors}"
+    # Sanitiza o título e os autores separadamente
+    local sanitized_title
+    sanitized_title=$(sanitize_text "$title")
+    local sanitized_authors
+    sanitized_authors=$(sanitize_text "$authors")
 
-    # Sanitiza o nome combinado
-    local sanitized_name
-    sanitized_name=$(sanitize_text "$name_with_authors")
+    # Combina título e autores com ' - '
+    local name_with_authors="${sanitized_title}-$(echo "$sanitized_authors" | tr '_' ' ')"
 
     # Define o novo nome do arquivo
-    local new_filename="${sanitized_name}.${type}.${year}.pdf"
+    local new_filename="${name_with_authors}.${type}.${year}.pdf"
     echo "$new_filename"
 }
 
@@ -144,7 +149,7 @@ process_file() {
 
         # Constrói o novo nome do arquivo usando o ano do arquivo, não do diretório
         local new_filename
-        new_filename=$(construct_new_filename "$TITLE" "$TYPE_SINGULAR" "$FILE_YEAR" "$AUTHORS")
+        new_filename=$(construct_new_filename "$TITLE" "$type" "$FILE_YEAR" "$AUTHORS")
 
         # Define o novo caminho completo do arquivo
         local new_filepath="${file%/*}/$new_filename"
@@ -224,19 +229,31 @@ display_structure() {
     echo -e "\e[1mRenomeação Concluída. Estrutura de Pastas Atualizada:\e[0m"
     echo ""
 
-    tree -C | while IFS= read -r line; do
-        local colored_line="$line"
-        for renamed_file in "${RENAMED_FILES[@]}"; do
-            # Extrai o nome do arquivo
-            relativo_nome=$(basename "$renamed_file")
-            # Verifica se a linha contém o nome do arquivo
-            if [[ "$line" == *"$relativo_nome"* ]]; then
-                # Substitui o nome do arquivo na linha com a versão colorida
-                colored_line=$(echo "$line" | sed "s/$relativo_nome/\x1b[32m$relativo_nome\x1b[0m/")
-            fi
+    if [[ ${#RENAMED_FILES[@]} -eq 0 ]]; then
+        # Se tudo estiver correto, exibe "OK" em ASCII art verde
+        echo -e "\e[32m"
+        echo "  ___   ____    _    _  __    ___  "
+        echo " / _ \ |  _ \  | |  | | \ \  / / | "
+        echo "| | | || | | | | |  | |  \ \/ /| | "
+        echo "| |_| || |_| | | |__| |   \  / | |___ "
+        echo " \___/ |____/   \____/     \/  |_____|"
+        echo -e "\e[0m"
+    else
+        # Usa tree para exibir a estrutura, colorindo os arquivos renomeados
+        tree -C | while IFS= read -r line; do
+            local colored_line="$line"
+            for renamed_file in "${RENAMED_FILES[@]}"; do
+                # Extrai o nome do arquivo
+                relativo_nome=$(basename "$renamed_file")
+                # Verifica se a linha contém o nome do arquivo
+                if [[ "$line" == *"$relativo_nome"* ]]; then
+                    # Substitui o nome do arquivo na linha com a versão colorida
+                    colored_line=$(echo "$line" | sed "s/$relativo_nome/\x1b[32m$relativo_nome\x1b[0m/")
+                fi
+            done
+            echo -e "$colored_line"
         done
-        echo -e "$colored_line"
-    done
+    fi
 }
 
 # Função principal
