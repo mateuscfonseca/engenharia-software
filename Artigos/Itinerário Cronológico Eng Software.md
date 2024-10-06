@@ -3,7 +3,7 @@
 ## **1. "Managing the Development of Large Software Systems"**  
 **Autor:** Winston W. Royce  
 **Ano:** 1970  
-**Tipo:** Artigo Científico
+**Tipo:** Artigo Científico  
 
 **Resumo:**  
 Royce introduz o modelo cascata (Waterfall) como um processo sequencial de desenvolvimento com fases de requisitos, design, implementação, verificação e manutenção. Ele sugere iterações entre as fases para reduzir riscos.
@@ -22,7 +22,7 @@ Boehm apresenta o Modelo Espiral como uma resposta ao Waterfall, trazendo flexib
 ## **2. "Structured Programming"**  
 **Autor:** Edsger W. Dijkstra  
 **Ano:** 1970  
-**Tipo:** Artigo Científico
+**Tipo:** Artigo Científico  
 
 **Resumo:**  
 Dijkstra defende a programação estruturada, rejeitando o uso de GOTO e promovendo blocos organizados hierarquicamente para melhorar a legibilidade e manutenção do código.
@@ -48,7 +48,7 @@ O estudo de Vessey e Weber avalia a eficácia da programação estruturada, apon
 ## **3. "Reflections on Trusting Trust"**  
 **Autor:** Ken Thompson  
 **Ano:** 1984  
-**Tipo:** Artigo Científico
+**Tipo:** Artigo Científico  
 
 **Resumo:**  
 Thompson expõe a vulnerabilidade dos compiladores, demonstrando como um backdoor pode ser introduzido no compilador sem ser visível no código-fonte.
@@ -67,7 +67,7 @@ Schneier revisita o ataque descrito por Thompson, explorando a importância da c
 ## **4. "Design and Evaluation of a Software Engineering Process"**  
 **Autores:** Victor R. Basili e H. Dieter Rombach  
 **Ano:** 1985  
-**Tipo:** Artigo Científico
+**Tipo:** Artigo Científico  
 
 **Resumo:**  
 Basili e Rombach introduzem a avaliação contínua de processos de engenharia de software, propondo melhorias iterativas para aumentar a qualidade e produtividade do desenvolvimento.
@@ -93,7 +93,7 @@ Boehm e Turner discutem os desafios na adoção de métodos ágeis em organizaç
 ## **5. "A Metrics Suite for Object-Oriented Design"**  
 **Autores:** Shyam R. Chidamber e Chris F. Kemerer  
 **Ano:** 1994  
-**Tipo:** Artigo Científico
+**Tipo:** Artigo Científico  
 
 **Resumo:**  
 Chidamber e Kemerer propõem métricas objetivas para avaliar projetos orientados a objetos, como WMC e CBO, amplamente utilizadas para medir a complexidade e qualidade do design.
@@ -116,19 +116,26 @@ Basili e seus coautores avaliam empiricamente a aplicabilidade das métricas de 
 
 ---
 
-## **6. "Object-Oriented Analysis and Design"**  
-**Autor:** Constance A. Knapp  
-**Ano:** 1995  
-**Tipo:** Artigo Científico
+## **6. "Iterative and Incremental Development: A Brief History"**  
+**Autor:** Victor R. Basili  
+**Ano:** 2000  
+**Tipo:** Artigo Científico  
 
 **Resumo:**  
-Knapp introduz técnicas de análise e design orientadas a objetos, focando na identificação de objetos e suas interações, além da modularidade e reutilização de código para simplificar sistemas complexos.
+Basili analisa a evolução do desenvolvimento iterativo e incremental, abordando como essas práticas foram aplicadas em grandes projetos de software, enfatizando o equilíbrio entre flexibilidade e controle.
 
 ### **Comentários e Críticas:**
 
-#### **"Is There Such a Thing as Object-Oriented Analysis?"**  
-**Autor:** Martin Fowler  
-**Ano:** 1999  
-**Tipo:** Artigo de Opinião  
+#### **"Manifesto for Agile Software Development"**  
+**Autores:** Kent Beck, Martin Fowler, et al.  
+**Ano:** 2001  
+**Tipo:** Manifesto  
 **Resumo:**  
-Fowler questiona a existência de uma verdadeira análise orientada a objetos, sugerindo que o foco excessivo nessa abordagem pode obscurecer o entendimento dos requisitos funcionais.
+O Manifesto Ágil desafia os processos tradicionais, propondo flexibilidade e adaptação rápida às mudanças, com ênfase em interações, software funcional e resposta rápida sobre planejamento rígido.
+
+#### **"Evidence-Based Software Engineering and Systematic Reviews"**  
+**Autor:** Barbara Kitchenham  
+**Ano:** 2004  
+**Tipo:** Artigo Científico  
+**Resumo:**  
+Kitchenham revisa estudos empíricos sobre práticas de engenharia de software, propondo uma abordagem sistemática para avaliar a eficácia de diferentes metodologias, complementando o estudo de Basili sobre desenvolvimento incremental.
