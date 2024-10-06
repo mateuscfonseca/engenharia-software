@@ -8,7 +8,7 @@
 **Resumo:**  
 Royce introduz o modelo cascata (Waterfall) como um processo sequencial de desenvolvimento com fases de requisitos, design, implementação, verificação e manutenção. Ele sugere iterações entre as fases para reduzir riscos.
 
-### **Comentários e Críticas**
+### **Conteúdo Relacionado**
 
 #### **"Spiral Model of Software Development and Enhancement"**  
 **Autor:** Barry W. Boehm  
@@ -27,7 +27,7 @@ Boehm apresenta o Modelo Espiral como uma resposta ao Waterfall, trazendo flexib
 **Resumo:**  
 Dijkstra defende a programação estruturada, rejeitando o uso de GOTO e promovendo blocos organizados hierarquicamente para melhorar a legibilidade e manutenção do código.
 
-### **Comentários e Críticas:**
+### **Conteúdo Relacionado**
 
 #### **"Structured Programming with go to Statements"**  
 **Autor:** Donald Knuth  
@@ -53,7 +53,7 @@ O estudo de Vessey e Weber avalia a eficácia da programação estruturada, apon
 **Resumo:**  
 Thompson expõe a vulnerabilidade dos compiladores, demonstrando como um backdoor pode ser introduzido no compilador sem ser visível no código-fonte.
 
-### **Comentários e Críticas:**
+### **Conteúdo Relacionado**
 
 #### **"Reflections on the Trusting Trust Attack"**  
 **Autor:** Bruce Schneier  
@@ -72,7 +72,7 @@ Schneier revisita o ataque descrito por Thompson, explorando a importância da c
 **Resumo:**  
 Basili e Rombach introduzem a avaliação contínua de processos de engenharia de software, propondo melhorias iterativas para aumentar a qualidade e produtividade do desenvolvimento.
 
-### **Comentários e Críticas:**
+### **Conteúdo Relacionado**
 
 #### **"Evaluating the Effectiveness of Software Engineering Process Models"**  
 **Autor:** Carlo Ghezzi  
@@ -98,7 +98,7 @@ Boehm e Turner discutem os desafios na adoção de métodos ágeis em organizaç
 **Resumo:**  
 Chidamber e Kemerer propõem métricas objetivas para avaliar projetos orientados a objetos, como WMC e CBO, amplamente utilizadas para medir a complexidade e qualidade do design.
 
-### **Comentários e Críticas:**
+### **Conteúdo Relacionado**
 
 #### **"Exploring the relationships between design measures and software quality in object-oriented systems"**  
 **Autor:** Briand, L. C., Wüst, J., Daly, J. W., & Victor Porter, D.  
@@ -124,7 +124,7 @@ Basili e seus coautores avaliam empiricamente a aplicabilidade das métricas de 
 **Resumo:**  
 Basili analisa a evolução do desenvolvimento iterativo e incremental, abordando como essas práticas foram aplicadas em grandes projetos de software, enfatizando o equilíbrio entre flexibilidade e controle.
 
-### **Comentários e Críticas:**
+### **Conteúdo Relacionado**
 
 #### **"Manifesto for Agile Software Development"**  
 **Autores:** Kent Beck, Martin Fowler, et al.  
@@ -139,3 +139,52 @@ O Manifesto Ágil desafia os processos tradicionais, propondo flexibilidade e ad
 **Tipo:** Artigo Científico  
 **Resumo:**  
 Kitchenham revisa estudos empíricos sobre práticas de engenharia de software, propondo uma abordagem sistemática para avaliar a eficácia de diferentes metodologias, complementando o estudo de Basili sobre desenvolvimento incremental.
+
+---
+
+## **7. "Understanding Cost Drivers of Software Evolution: A Quantitative and Qualitative Investigation of Change Effort in Two Evolving Software Systems"**  
+**Autor:** Hans Christian Benestad  
+**Ano:** 2010  
+**Tipo:** Artigo Científico  
+
+**Resumo:**  
+Este artigo investiga os principais fatores que influenciam os custos da evolução de software, analisando o esforço de mudança em dois grandes sistemas em evolução. O estudo combina abordagens quantitativas e qualitativas para identificar as causas subjacentes ao aumento de custos e propõe estratégias para mitigá-los, oferecendo uma visão crítica sobre a gestão de mudanças em projetos de software de longo prazo.
+
+### **Conteúdo Relacionado**
+
+#### **"Management Challenges to Implementing Agile Processes in Traditional Development Organizations"**  
+**Autores:** Barry Boehm, Richard Turner  
+**Ano:** 2005  
+**Tipo:** Artigo Científico  
+**Resumo:**  
+Este artigo discute os desafios que as organizações tradicionais enfrentam ao adotar métodos ágeis, destacando os conflitos culturais e processuais que podem surgir ao tentar implementar processos mais flexíveis em ambientes rigidamente estruturados.
+
+#### **"Documenting Agile Architecture: Practices and Recommendations"**  
+**Autor:** Mirjana Maric  
+**Ano:** 2016  
+**Tipo:** Artigo Científico  
+**Resumo:**  
+Maric explora os desafios de documentar a arquitetura de software em projetos ágeis, argumentando que uma boa documentação é essencial para garantir a flexibilidade e escalabilidade dos sistemas, sem comprometer a agilidade do processo.
+
+---
+
+### **Atualidades**
+
+1. **"Prioritizing Use Cases: A Systematic Literature Review"**  
+   **Autores:** Yousra Odeh, Nedhal Al-Saiyd  
+   **Ano:** Publicação recente  
+   **Resumo:** Este artigo revisa métodos de priorização de casos de uso em engenharia de software, sintetizando abordagens atuais e identificando tendências emergentes.
+
+2. **"Decomposition of Monolith Applications Into Microservices Architectures: A Systematic Review"**  
+   **Autores:** Yalemisew Abgaz, Andrew McCarren, Peter Elger, David Solan, Neil Lapuz, Marin Bivol, Glenn Jackson, Murat Yilmaz, Jim Buckley, Paul Clarke  
+   **Ano:** Publicação recente  
+   **Resumo:** Este artigo revisa sistematicamente a decomposição de aplicações monolíticas em arquiteturas de microserviços, identificando boas práticas e desafios.
+
+3. **"A Decade of Agile Methodologies: Towards Explaining Agile Software Development"**  
+   **Autores:** Publicação recente  
+   **Resumo:** O estudo analisa uma década de metodologias ágeis, buscando explicar a evolução e o impacto dessas práticas no desenvolvimento de software.
+
+4. **"Exploring the intersection between software industry and Software Engineering education - A systematic mapping of Software Engineering Trends"**  
+   **Autores:** Orges Cico, Letizia Jaccheri, Anh Nguyen-Duc, He Zhang  
+   **Ano:** Publicação recente  
+   **Resumo:** Este artigo faz um mapeamento sistemático das tendências em Engenharia de Software, explorando a interseção entre a indústria de software e a educação em Engenharia de Software, destacando as tendências emergentes e a relação entre ensino e prática industrial.
