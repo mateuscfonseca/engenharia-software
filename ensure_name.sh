@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Nome: ensure_name.sh
-# Descrição: Renomeia arquivos nas pastas "Artigos" e "Livros" para seguir o padrão [nome_do_livro].[Tipo(Livro|Artigo)].[Ano].[Autores].pdf
+# Descrição: Renomeia arquivos nas pastas "Artigos" e "Livros" para seguir o padrão [nome do livro - autores].[Tipo(Livro|Artigo)].[Ano].pdf
 # Autor: [Seu Nome]
 # Data: [Data Atual]
 
@@ -30,7 +30,7 @@ check_dependencies() {
     fi
 }
 
-# Função para sanitizar o nome do arquivo (título ou autores)
+# Função para sanitizar o nome do arquivo (título e autores)
 sanitize_text() {
     local text="$1"
     # Remove caracteres especiais e substitui espaços e vírgulas por underscores
@@ -76,14 +76,15 @@ construct_new_filename() {
     local year="$3"
     local authors="$4"
 
-    # Sanitiza o título e os autores
-    local sanitized_title
-    sanitized_title=$(sanitize_text "$title")
-    local sanitized_authors
-    sanitized_authors=$(sanitize_text "$authors")
+    # Combina título e autores
+    local name_with_authors="${title} - ${authors}"
+
+    # Sanitiza o nome combinado
+    local sanitized_name
+    sanitized_name=$(sanitize_text "$name_with_authors")
 
     # Define o novo nome do arquivo
-    local new_filename="${sanitized_title}.${type}.${year}.${sanitized_authors}.pdf"
+    local new_filename="${sanitized_name}.${type}.${year}.pdf"
     echo "$new_filename"
 }
 
