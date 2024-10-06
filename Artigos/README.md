@@ -28,6 +28,7 @@ Este índice lista os artigos organizados por década. Clique nos links para ace
 - [Exploring the relationships between design measures and software quality in object-oriented systems - Briand, L. C., Wüst, J., Daly, J. W., & Victor Porter, D. (2000).pdf](./2000/Exploring%20the%20relationships%20between%20design%20measures%20and%20software%20quality%20in%20object-oriented%20systems%20-%20Briand,%20L.%20C.,%20Wüst,%20J.,%20Daly,%20J.%20W.,%20&%20Victor%20Porter,%20D.%20(2000).pdf)
 - [Iterative and Incremental Development: A Brief History - Victor R. Basili (2003).pdf](./2000/Iterative%20and%20Incremental%20Development:%20A%20Brief%20History%20-%20Victor%20R.%20Basili%20(2003).pdf)
 - [Lean Software Development - An Agile Toolkit - Mary Poppendieck and Tom Poppendieck (2003).pdf](./2000/Lean%20Software%20Development%20-%20An%20Agile%20Toolkit%20-%20Mary%20Poppendieck%20and%20Tom%20Poppendieck%20(2003).pdf)
+- [Management Challenges to Implementing Agile Processes in Traditional Development Organizations -_Boehm, B., & Turner, R. (2005).pdf](./2000/Management%20Challenges%20to%20Implementing%20Agile%20Processes%20in%20Traditional%20Development%20Organizations%20-_Boehm,%20B.,%20&%20Turner,%20R.%20(2005).pdf)
 - [Reflections on trusting trust revisited - Spinellis, D. (2003).pdf](./2000/Reflections%20on%20trusting%20trust%20revisited%20-%20Spinellis,%20D.%20(2003).pdf)
 - [The Pas, Present, and Future of Software Architecture (2006).pdf](./2000/The%20Pas,%20Present,%20and%20Future%20of%20Software%20Architecture%20(2006).pdf)
 - [The Waterfall Model in Large-Scale Development - Kai Petersen Claes Wohlin, and Dejan Baca (2009).pdf](./2000/The%20Waterfall%20Model%20in%20Large-Scale%20Development%20-%20Kai%20Petersen%20Claes%20Wohlin,%20and%20Dejan%20Baca%20(2009).pdf)
@@ -36,12 +37,15 @@ Este índice lista os artigos organizados por década. Clique nos links para ace
 
 ## 2010
 
+- [A first look at blockchain-based decentralized applications Kaidong Wu Yun Ma Gang Huang Xuanzhe Liu (2019).pdf](./2010/A%20first%20look%20at%20blockchain-based%20decentralized%20applications%20Kaidong%20Wu%20Yun%20Ma%20Gang%20Huang%20Xuanzhe%20Liu%20(2019).pdf)
+- [A first look at blockchain‐based decentralized applications - Wu, K., Ma, Y., Huang, G., & Liu, X. (2019).pdf](./2010/A%20first%20look%20at%20blockchain‐based%20decentralized%20applications%20-%20Wu,%20K.,%20Ma,%20Y.,%20Huang,%20G.,%20&%20Liu,%20X.%20(2019).pdf)
 - [Documenting Agile Architecture: Practices and Recommendations - Mirjana Maric (2016).pdf](./2010/Documenting%20Agile%20Architecture:%20Practices%20and%20Recommendations%20-%20Mirjana%20Maric%20(2016).pdf)
 - [Software Engineering Methodologies: A Review of the Waterfall Model and Object-Oriented Approach - Adetokunbo A.A. Adenowo, Basirat A. Adenowo (2013).pdf](./2010/Software%20Engineering%20Methodologies:%20A%20Review%20of%20the%20Waterfall%20Model%20and%20Object-Oriented%20Approach%20-%20Adetokunbo%20A.A.%20Adenowo,%20Basirat%20A.%20Adenowo%20(2013).pdf)
 
 ## 2020
 
 - [A decade of agile methodologies: Towards explaining agile software development - Torgeir Dingsøyr a Sridhar Nerur c, VenuGopal Balijepally d, Nils Brede Moe a(2021).pdf](./2020/A%20decade%20of%20agile%20methodologies:%20Towards%20explaining%20agile%20software%20development%20-%20Torgeir%20Dingsøyr%20a%20Sridhar%20Nerur%20c,%20VenuGopal%20Balijepally%20d,%20Nils%20Brede%20Moe%20a(2021).pdf)
+- [Comparing Methods for Large-Scale Agile Software Development_ A Systematic Literature Review -Edison, H., Wang, X., & Conboy, K. (2021).pdf](./2020/Comparing%20Methods%20for%20Large-Scale%20Agile%20Software%20Development_%20A%20Systematic%20Literature%20Review%20-Edison,%20H.,%20Wang,%20X.,%20&%20Conboy,%20K.%20(2021).pdf)
 - [Decomposition of Monolith Applications Into Microservices Architectures: A Systematic Review - Yalemisew Abgaz , Andrew McCarren , Peter Elger, David Solan , Neil Lapuz , Marin Bivol, Glenn Jackson , Murat Yilmaz , Jim Buckley , and Paul Clarke (2023).pdf](./2020/Decomposition%20of%20Monolith%20Applications%20Into%20Microservices%20Architectures:%20A%20Systematic%20Review%20-%20Yalemisew%20Abgaz%20,%20Andrew%20McCarren%20,%20Peter%20Elger,%20David%20Solan%20,%20Neil%20Lapuz%20,%20Marin%20Bivol,%20Glenn%20Jackson%20,%20Murat%20Yilmaz%20,%20Jim%20Buckley%20,%20and%20Paul%20Clarke%20(2023).pdf)
 - [Exploring the intersection between software industry and Software Engineering education - A systematic mapping of Software Engineering Trends Orges Cico a, Letizia Jaccheri , Anh Nguyen-Duc b, He Zhang c (2021).pdf](./2020/Exploring%20the%20intersection%20between%20software%20industry%20and%20Software%20Engineering%20education%20-%20A%20systematic%20mapping%20of%20Software%20Engineering%20Trends%20Orges%20Cico%20a,%20Letizia%20Jaccheri%20,%20Anh%20Nguyen-Duc%20b,%20He%20Zhang%20c%20(2021).pdf)
 - [Prioritizing Use Cases: A Systematic Literature Review - Yousra Odeh (2023).pdf](./2020/Prioritizing%20Use%20Cases:%20A%20Systematic%20Literature%20Review%20-%20Yousra%20Odeh%20(2023).pdf)
@@ -49,14 +53,10 @@ Este índice lista os artigos organizados por década. Clique nos links para ace
 
 ## Outros
 
-- [A first look at blockchain-based decentralized applications Kaidong Wu Yun Ma Gang Huang Xuanzhe Liu (2019).pdf](./A%20first%20look%20at%20blockchain-based%20decentralized%20applications%20Kaidong%20Wu%20Yun%20Ma%20Gang%20Huang%20Xuanzhe%20Liu%20(2019).pdf)
-- [A first look at blockchain‐based decentralized applications - Wu, K., Ma, Y., Huang, G., & Liu, X. (2019).pdf](./A%20first%20look%20at%20blockchain‐based%20decentralized%20applications%20-%20Wu,%20K.,%20Ma,%20Y.,%20Huang,%20G.,%20&%20Liu,%20X.%20(2019).pdf)
-- [Comparing Methods for Large-Scale Agile Software Development_ A Systematic Literature Review -Edison, H., Wang, X., & Conboy, K. (2021).pdf](./Comparing%20Methods%20for%20Large-Scale%20Agile%20Software%20Development_%20A%20Systematic%20Literature%20Review%20-Edison,%20H.,%20Wang,%20X.,%20&%20Conboy,%20K.%20(2021).pdf)
 - [generate_indice.sh](./generate_indice.sh)
-- [Management Challenges to Implementing Agile Processes in Traditional Development Organizations -_Boehm, B., & Turner, R. (2005).pdf](./Management%20Challenges%20to%20Implementing%20Agile%20Processes%20in%20Traditional%20Development%20Organizations%20-_Boehm,%20B.,%20&%20Turner,%20R.%20(2005).pdf)
 - [move_by_year.sh](./move_by_year.sh)
 - [README.md](./README.md)
 
 ---
 
-Gerado automaticamente em dom 06 out 2024 18:17:25 -03.
+Gerado automaticamente em dom 06 out 2024 18:33:28 -03.
