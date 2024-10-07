@@ -11,7 +11,8 @@ Criar um sistema que automatiza a gestão de conhecimento. Unindo LLMs open sour
     - extração de mapas conceituais
           - teia de conceitos
           - ideias geradoras (centroide)
-          - 
+    - linha do tempo de desenvolvimento de conceitos
+    - geração de modelos de dominio
 
 # Funcionalidades pretendidas
 - Organizar a base de diferentes formas (hierarquizar e agrupar por caracteristicas descritas em um arquivo de metadados)
