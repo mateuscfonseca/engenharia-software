@@ -43,19 +43,6 @@ Este índice lista os artigos organizados por década. Clique nos links para ace
 - [Software Architecture: The Hard Parts - Modern Trade Off Analyses for Distributed Architectures - Neal Ford, Mark Richards, Pramod Sadalage, Zhamak Dehghani (2021).pdf](./2020/Software%20Architecture:%20The%20Hard%20Parts%20-%20Modern%20Trade%20Off%20Analyses%20for%20Distributed%20Architectures%20-%20Neal%20Ford,%20Mark%20Richards,%20Pramod%20Sadalage,%20Zhamak%20Dehghani%20(2021).pdf)
 - [Test Driven Development Teste e Design no Mundo Real (2021).pdf](./2020/Test%20Driven%20Development%20Teste%20e%20Design%20no%20Mundo%20Real%20(2021).pdf)
 
-## Lidos
-
-- [Patterns of Enterprise Application Architecture - Martin Fowler (2002).pdf](./Lidos/Patterns%20of%20Enterprise%20Application%20Architecture%20-%20Martin%20Fowler%20(2002).pdf)
-- [Simon Brown - Software Architecture for Developers - Technical leadership and the balance with agility (2022).pdf](./Lidos/Simon%20Brown%20-%20Software%20Architecture%20for%20Developers%20-%20Technical%20leadership%20and%20the%20balance%20with%20agility%20(2022).pdf)
-
-## Outros
-
-- [exemplos.py](./exemplos.py)
-- [generate_indice.sh](./generate_indice.sh)
-- [move_by_year.sh](./move_by_year.sh)
-- [README.md](./README.md)
-- [Refactoring.md](./Refactoring.md)
-
 ---
 
 Gerado automaticamente em dom 06 out 2024 18:21:05 -03.
