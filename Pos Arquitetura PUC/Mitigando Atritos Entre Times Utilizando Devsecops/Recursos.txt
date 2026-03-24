@@ -1,0 +1,12 @@
+
+Awesome DevSecOps
+https://github.com/devsecops/awesome-devsecops
+
+
+https://www.zaproxy.org/getting-started/
+
+https://www.jit.io/resources/appsec-tools/top-dast-tools-for-2024
+
+https://devsecops.puziol.com.br/en/security/clair/
+
+https://notebooklm.google.com/notebook/43f855cd-2e83-4b13-9f03-acee2558d208
