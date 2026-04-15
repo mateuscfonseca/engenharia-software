@@ -1,0 +1,73 @@
+Guia de Estudo: Fundamentos de Segurança de Contêineres (Capítulos 1-4)
+
+Este documento sintetiza os conceitos fundamentais apresentados nos primeiros quatro capítulos da obra de Liz Rice, focando na arquitetura, ameaças e mecanismos de isolamento que sustentam a tecnologia de contêineres no ecossistema Linux.
+
+
+--------------------------------------------------------------------------------
+
+
+Questionário de Revisão
+
+Este quiz contém dez perguntas de resposta curta para testar a compreensão dos conceitos fundamentais de segurança e tecnologia de contêineres.
+
+1. Qual é a diferença fundamental entre "contêineres de aplicação" e "contêineres de sistema"?
+2. Como o texto define e diferencia os conceitos de "risco", "ameaça" e "mitigação"?
+3. No contexto de segurança, o que estabelece o "Princípio do Menor Privilégio"?
+4. O que é uma interface de chamada de sistema (syscall) e qual sua importância para a segurança?
+5. De que maneira os bits setuid e setgid afetam a execução de um processo no Linux?
+6. O que são as "Linux Capabilities" e por que elas foram introduzidas?
+7. Qual é a função primária dos grupos de controle (cgroups) na arquitetura de contêineres?
+8. Como o namespace de ID de Processo (PID) contribui para o isolamento do contêiner?
+9. O que significa a operação de "mudar o diretório raiz" (chroot) para um processo?
+10. Por que o namespace de usuário (User namespace) é considerado uma vantagem significativa de segurança?
+
+
+--------------------------------------------------------------------------------
+
+
+Gabarito do Questionário
+
+1. Contêineres de aplicação vs. sistema: Contêineres de aplicação (como Docker e Kubernetes) são projetados para serem imutáveis e rodar apenas o código necessário para a aplicação. Já os contêineres de sistema (como LXC) executam uma distribuição Linux inteira, sendo tratados de forma semelhante a máquinas virtuais, incluindo o uso de SSH.
+2. Risco, Ameaça e Mitigação: O risco é um problema potencial e seus efeitos caso ocorra; a ameaça é o caminho ou método pelo qual esse risco se concretiza; e a mitigação é a contramedida ou ação tomada para prevenir a ameaça ou reduzir sua probabilidade de sucesso.
+3. Princípio do Menor Privilégio: Este princípio afirma que o acesso deve ser limitado ao mínimo estritamente necessário para que uma pessoa ou componente execute sua função. Por exemplo, um microsserviço de busca deve ter acesso apenas de leitura ao banco de dados, sem permissões de escrita ou acesso a dados de pagamento.
+4. Interface Syscall: Aplicações rodam no espaço do usuário e, para acessar hardware ou arquivos, devem solicitar ao kernel através de syscalls. Como todos os contêineres em um host compartilham o mesmo kernel, o controle sobre quais chamadas de sistema podem ser feitas é um aspecto crítico da segurança.
+5. Bits setuid/setgid: Normalmente, um processo herda o ID do usuário que o executa, mas se o bit setuid estiver ativo no executável, o processo assume a identidade do dono do arquivo. Isso permite que usuários comuns executem programas com privilégios elevados, como o comando sudo ou o ping.
+6. Linux Capabilities: São privilégios granulares (mais de 40 no kernel atual) que permitem a uma thread realizar ações específicas sem precisar de acesso total como root. Elas foram introduzidas para dividir o poder absoluto do root em permissões menores, como CAP_NET_RAW para abrir sockets de rede.
+7. Função dos cgroups: Os cgroups limitam e monitoram os recursos de hardware (como CPU, memória e rede) que um grupo de processos pode consumir. Do ponto de vista da segurança, eles evitam ataques de exaustão de recursos, onde um processo compromete o sistema ao monopolizar a memória ou CPU.
+8. Namespace de PID: Este namespace restringe quais IDs de processo são visíveis para um contêiner, reiniciando a numeração a partir do PID 1. Isso garante que um contêiner não possa ver ou interagir com processos rodando no host ou em outros contêineres.
+9. Chroot: A operação de chroot altera o diretório raiz para um processo, impedindo que ele acesse arquivos ou diretórios acima dessa nova raiz na hierarquia do sistema de arquivos. Isso isola o sistema de arquivos do contêiner, permitindo que ele tenha sua própria distribuição e dependências.
+10. Namespace de Usuário: Ele permite mapear IDs de usuário dentro do contêiner para IDs diferentes no host. Isso permite que um processo rode como "root" dentro do contêiner, mas tenha uma identidade sem privilégios no host, mitigando o impacto de uma possível invasão.
+
+
+--------------------------------------------------------------------------------
+
+
+Propostas de Redação (Questões Dissertativas)
+
+As questões abaixo são projetadas para estimular a análise crítica e a síntese dos temas abordados. Não são fornecidas respostas para estas questões.
+
+1. Análise de Vetores de Ataque: Discorra sobre os principais vetores de ataque em uma implantação de contêineres, desde o código-fonte até o tempo de execução (runtime), explicando como a vulnerabilidade em um estágio pode comprometer o sistema inteiro.
+2. A Dualidade do Isolamento de Contêineres: Explique como um contêiner pode parecer uma máquina isolada internamente enquanto, sob a perspectiva do host, é apenas um processo Linux comum. Quais as implicações de segurança dessa arquitetura?
+3. Princípios de Segurança e Contêineres: Avalie como os princípios de "Defesa em Profundidade" e "Redução da Superfície de Ataque" podem ser aplicados de forma prática no ciclo de vida de um contêiner.
+4. O Papel do Kernel Linux: Discuta a importância do kernel Linux como o ponto central de confiança na segurança de contêineres. O que acontece se o kernel for comprometido ou se houver uma configuração inadequada de privilégios?
+5. Mitigação de Ataques de Negação de Serviço Local: Descreva o funcionamento de uma "bomba de bifurcação" (fork bomb) e explique detalhadamente como os cgroups (especificamente o controlador pids) podem prevenir que esse ataque derrube o host.
+
+
+--------------------------------------------------------------------------------
+
+
+Glossário de Termos-Chave
+
+Termo	Definição
+Cgroups (Control Groups)	Mecanismo do kernel Linux que limita, isola e mede o uso de recursos (CPU, memória, I/O) por grupos de processos.
+Namespace	Recurso do kernel que isola recursos do sistema, controlando o que um processo pode "ver" (ex: redes, PIDs, usuários).
+Syscall (Chamada de Sistema)	A interface programática pela qual o código no espaço do usuário solicita serviços do kernel do sistema operacional.
+Chroot (Change Root)	Operação que altera o diretório raiz aparente para o processo atual e seus processos filhos.
+DAC (Discretionary Access Control)	Modelo de permissões de arquivos no Linux baseado em bits de leitura (r), escrita (w) e execução (x) para dono, grupo e outros.
+Capabilities	Divisão dos privilégios do superusuário (root) em unidades menores e independentes que podem ser atribuídas a processos.
+Escalação de Privilégio	Ato de explorar uma falha ou configuração para obter um nível de permissão superior ao originalmente pretendido.
+Bomba de Bifurcação (Fork Bomb)	Um ataque de negação de serviço onde um processo cria cópias de si mesmo exponencialmente para esgotar os recursos do sistema.
+Limiar de Segurança (Trust Boundary)	Ponto em um sistema onde as permissões mudam e onde o isolamento deve ser aplicado para proteger dados ou processos.
+Veth (Virtual Ethernet)	Par de interfaces de rede virtuais que funcionam como um cabo de rede conectando diferentes namespaces de rede.
+Multitenancy (Multilocação)	Ambiente onde múltiplos usuários ou "tenants" compartilham os mesmos recursos físicos de hardware.
+Kernel	A parte central do sistema operacional que gerencia o hardware e permite que o software interaja com ele.
